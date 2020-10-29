@@ -1,6 +1,5 @@
 import Data.Maybe
 import Data.Char
-import Data.Char
 
 sumPair :: (Int, Int) -> Int
 sumPair (e1, e2) = e1 + e2
