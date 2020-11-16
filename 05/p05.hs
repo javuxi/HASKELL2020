@@ -76,7 +76,6 @@ varValue (Times e1 e2) dict = case (varValue e1 dict, varValue e2 dict) of
 --[Times (Val 6) (Var b), Plus (Val 5) (Var a)]
 --[Plus (Times (Val 6) (Var b)) (Plus (Val 5) (Var a))]
 
-
 genExp :: [String] -> [Exp] -> Maybe Exp
 genExp [] [e] = Just e
 genExp ("+":t) (e1:e2:rest) = genExp t ((Plus e1 e2) : rest)
