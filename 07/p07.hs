@@ -87,27 +87,6 @@ isBigger (R n1 d1) (R n2 d2) = if n1 < n2 then
 addUp :: Rat -> Rat -> Rat
 addUp (R n1 d1) (R n2 d2) = (R (n1 + n2) d1)
 
-substract :: Rat -> Rat -> Rat
-substract (R n1 d1) (R n2 d2) = (R (n1 - n2) d1)
-
-makeAbs :: Rat -> Rat
-makeAbs (R n1 d1) = if n1 < 0 && d1 > 0 then
-                        (R (-(n1)) d1)
-                    else if n1 > 0 && d1 < 0 then
-                        (R n1 (-(d1)))
-                    else if n1 < 0 && d1 < 0 then
-                        (R (-(n1)) (-(d1)))
-                    else
-                        (R n1 d1)
-
-sign :: Int -> Int
-sign num = if num < 0 then
-                -1
-            else if num == 0 then
-                0
-            else 
-                1
-
 instance Eq Rat where 
     (==) d1 d2 = areSame d1 d2
 
@@ -119,8 +98,3 @@ instance Ord Rat where
 
 instance Num Rat where
     (+) (R n1 d1) (R n2 d2) = addUp (makeSame (R n1 d1) (R n2 d2)) (makeSame (R n2 d2) (R n1 d1))
-    (*) (R n1 d1) (R n2 d2) = (R (n1 * n2) (d1 * d2))
-    (-) (R n1 d1) (R n2 d2) = substract (makeSame (R n1 d1) (R n2 d2)) (makeSame (R n2 d2) (R n1 d1))
-    abs (R n1 d1) = makeAbs (R n1 d1)
-    signum (R n1 d1) = (R (sign(n1)) (sign(d1)))
-    fromInteger num = R (fromInteger(num)) 1
