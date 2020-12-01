@@ -100,8 +100,6 @@ main :: IO ()
 main = do
         allOptions
         makeMenu []
-        return ()
-
 
 --- Telefonski imenik ---
 -- [(ime, priimek, stevilka)] [(String, String, Int)]
