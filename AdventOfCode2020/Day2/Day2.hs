@@ -14,11 +14,17 @@ getSymbol :: [String] -> Char
 getSymbol str = (head (splitOn ":" (str!!1))!!0)
 
 isLegit :: [String] -> Bool
-isLegit str = if ((countAppearance (str!!2) (getSymbol str) 0) >= (fst (getMinMax str))) && ((countAppearance (str!!2) (getSymbol str) 0) <= (snd (getMinMax str))) then True else False
+isLegit str = if ((countAppearance (str!!2) (getSymbol str) 0) >= (fst (getMinMax str))) && ((countAppearance (str!!2) (getSymbol str) 0) <= (snd (getMinMax str))) then 
+                True 
+            else 
+                False
 
 countLegit :: [String] -> Int -> Int
 countLegit [] acc = acc
-countLegit (h:t) acc = if (isLegit (words h)) then countLegit t (acc + 1) else countLegit t acc
+countLegit (h:t) acc = if (isLegit (words h)) then 
+                        countLegit t (acc + 1) 
+                    else 
+                        countLegit t acc
 
 main :: IO ()
 main = do
